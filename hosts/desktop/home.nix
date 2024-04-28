@@ -8,6 +8,8 @@
     ../../modules/home-manager/browser/chromium.nix
     ../../modules/home-manager/dev/vscode.nix
     ../../modules/home-manager/gaming/index.nix
+    ../../modules/home-manager/video/recording.nix
+    ../../modules/home-manager/video/editing.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

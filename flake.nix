@@ -13,13 +13,17 @@
   outputs = {
     self,
     nixpkgs,
+    home-manager,
     ...
   } @ inputs: {
+    overlays.my = import ./pkgs;
+
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
+        home-manager.nixosModules.home-manager
+        {nixpkgs.overlays = [self.overlays.my];}
         ./hosts/desktop/configuration.nix
-        inputs.home-manager.nixosModules.default
       ];
     };
   };

@@ -4,8 +4,12 @@
       pkgs.symlinkJoin {
         name = "lutris";
         paths = [
-          (pkgs.lutris.overrideAttrs {
-            steamSupport = false;
+          (pkgs.lutris.override {
+            extraPkgs = pkgs: [
+              winePackages.stable
+              wine64Packages.stable
+              winetricks
+            ];
           })
         ];
         buildInputs = [pkgs.makeWrapper];

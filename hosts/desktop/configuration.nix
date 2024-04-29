@@ -59,6 +59,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    git
     wget
     unzip
     xsel
